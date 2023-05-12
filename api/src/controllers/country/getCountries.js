@@ -2,11 +2,8 @@ const { Country } = require('../../db')
 
 const getCountries = async () => {
   try {
-    const countries = await Country.findAll({})
-    const plainCountries = countries.map((country) =>
-      country.get({ plain: true })
-    )
-    return plainCountries
+    const countries = await Country.findAll({ raw: true })
+    return countries
   } catch (error) {
     if (error) throw Error('Failed to fetch countries')
   }

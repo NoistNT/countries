@@ -7,12 +7,12 @@ const { Router } = require('express')
 
 const router = Router()
 
-// Config routes
+// Routes config
 router.get('/', async (req, res) => {
   try {
     res.status(200).json(await getCountries())
   } catch (error) {
-    res.status(400).json(error.message)
+    res.status(400).json({ error: error.message })
   }
 })
 
@@ -21,7 +21,7 @@ router.get('/name', async (req, res) => {
     const { name } = req.query
     res.status(200).json(await getCountryByName(name))
   } catch (error) {
-    res.status(400).json(error.message)
+    res.status(400).json({ error: error.message })
   }
 })
 
@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params
     res.status(200).json(await getCountryByID(id))
   } catch (error) {
-    res.status(400).json(error.message)
+    res.status(400).json({ error: error.message })
   }
 })
 

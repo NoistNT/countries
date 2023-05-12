@@ -1,15 +1,22 @@
-const { Country } = require('../../db')
+const { Country, Activity } = require('../../db')
 const { Op } = require('sequelize')
 
 const getCountryByName = async (name) => {
   try {
-    if (!name) throw Error('Country name cannot be empty')
+    if (!name) throw Error('Country name is missing')
     const countries = await Country.findAll({
       where: {
         name: {
           [Op.iLike]: `%${name}%`
         }
-      }
+      },
+      include: [
+        {
+          model: Activity,
+          attributes: ['name', 'difficulty', 'duration', 'season'],
+          through: { attributes: [] }
+        }
+      ]
     })
     if (!countries.length)
       throw Error(`Couldn't find countries including ${name}`)

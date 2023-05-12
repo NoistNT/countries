@@ -15,7 +15,7 @@ const getAPIData = async () => {
         flag: country.flags.svg,
         continent: country.continents[0],
         capital: country.capital !== undefined ? country.capital[0] : 'No data',
-        subregion: country.subregion,
+        subregion: country.subregion || 'No data',
         area: country.area,
         population: country.population
       }

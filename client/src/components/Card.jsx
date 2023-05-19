@@ -1,14 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {
+  CardContainer,
+  Image,
+  Name,
+  Continent,
+  StyledLink
+} from './StyledComponents/StyledCard'
 
 export default function Card({ id, name, flag, continent }) {
   return (
-    <div key={id}>
-      <Link to={`/countries/${id}`}>
-        <img src={flag} alt={name} />
-      </Link>
-      <h2>{name}</h2>
-      <h3>{continent}</h3>
-    </div>
+    <CardContainer key={id}>
+      <StyledLink to={`/countries/${id}`}>
+        <Image src={flag} alt={name} />
+        <Name>{name}</Name>
+        <Continent>{continent}</Continent>
+      </StyledLink>
+    </CardContainer>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import Card from './Card'
+import { CardsContainer } from './StyledComponents/StyledCards'
 
 export default function Cards({ countries }) {
   return (
-    <div>
+    <CardsContainer>
       {countries.length &&
         countries.map((country) => (
           <Card
@@ -14,6 +15,6 @@ export default function Cards({ countries }) {
             continent={country.continent}
           />
         ))}
-    </div>
+    </CardsContainer>
   )
 }

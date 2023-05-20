@@ -1,44 +1,42 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { getCountries, getCountriesByName } from '../redux/actions/actions'
+import { getCountriesByName } from '../redux/actions/actions'
+import {
+  SearchBarContainer,
+  SearchBarInput,
+  SearchBarButton
+} from './StyledComponents/StyledSearchBar'
 
 export default function SearchBar() {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const [query, setQuery] = useState('')
 
-  const showAllCountries = () => {
-    dispatch(getCountries())
-    setQuery('')
-    navigate('/countries')
-  }
-
-  const handleSearch = () => {
+  const handleSearch = (e) => {
     dispatch(getCountriesByName(query))
+    setQuery((e.target.value = ''))
+    // navigate('/countries')
   }
 
   const handleChange = (e) => {
-    handleSearch()
     setQuery(e.target.value)
   }
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      handleSearch()
-      setQuery((e.target.value = ''))
+      handleSearch(e)
     }
   }
 
   return (
-    <div>
-      <input
+    <SearchBarContainer>
+      <SearchBarInput
         type='text'
+        placeholder='Search country'
         value={query}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={showAllCountries}>Show all countries</button>
-    </div>
+      <SearchBarButton onClick={handleSearch}>Search</SearchBarButton>
+    </SearchBarContainer>
   )
 }

@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
   width: fit-content;
   margin: 1rem auto;
   border-radius: 0.4rem;
-  background-color: #3c3649ed;
+  background-color: #22223b;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   font-family: 'Raleway', sans-serif;
@@ -17,8 +17,19 @@ export const CardContainer = styled.div`
 
   &:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    background-color: #3c3649;
+    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.22);
+    background-color: #701da078;
+    /* background-color: #590ea0ab; */
+    transition: 0.11s;
   }
+
+  /* &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    background-color: #3c3649;
+  } */
 `
 export const Image = styled.img`
   border-radius: 0.5rem 0.5rem 0 0;
@@ -31,7 +42,7 @@ export const Name = styled.h2`
   align-items: center;
   margin: 0;
   width: 100%;
-  color: #e2e2e2;
+  color: #ffffffe0;
   border-bottom: solid gray;
   height: 4rem;
 
@@ -40,12 +51,12 @@ export const Name = styled.h2`
   }
 
   a {
-    color: #e2e2e2;
+    color: #ffffffe0;
     text-decoration: none;
   }
 `
 export const Continent = styled.h3`
-  color: #e2e2e2;
+  color: #ffffffe0;
   display: flex;
   justify-content: space-evenly;
   width: 100%;

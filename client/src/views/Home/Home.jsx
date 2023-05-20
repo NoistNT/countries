@@ -10,6 +10,7 @@ export default function Home() {
   // Mount component
   useEffect(() => {
     dispatch(getCountries())
+    return () => dispatch(getCountries())
   }, [dispatch])
 
   return (

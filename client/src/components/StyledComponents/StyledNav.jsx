@@ -12,14 +12,6 @@ export const NavContainer = styled.nav`
   @media (min-width: 767px) {
     padding: 2rem 0;
   }
-
-  @media (min-width: 1024px) {
-    justify-content: space-evenly;
-  }
-
-  @media (min-width: 1440px) {
-    justify-content: space-around;
-  }
 `
 
 export const NavBarUl = styled.ul`

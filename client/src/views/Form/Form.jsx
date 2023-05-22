@@ -57,8 +57,6 @@ export default function Form() {
       <FormContainer onSubmit={handleSubmit}>
         <h1>Create activity</h1>
         <FormGroup>
-          {/* <Label htmlFor='name'>Name </Label>
-          <br /> */}
           <Input
             type='text'
             name='name'
@@ -70,8 +68,6 @@ export default function Form() {
           {errors.name && <ErrorSpan>{errors.name}</ErrorSpan>}
         </FormGroup>
         <FormGroup>
-          {/* <Label htmlFor='country'>Country </Label>
-          <br /> */}
           <Input
             type='text'
             name='country'
@@ -83,7 +79,6 @@ export default function Form() {
           {errors.country && <ErrorSpan>{errors.country}</ErrorSpan>}
         </FormGroup>
         <FormGroup>
-          {/* <Label htmlFor='duration'>Duration </Label> */}
           <Input
             type='text'
             name='duration'

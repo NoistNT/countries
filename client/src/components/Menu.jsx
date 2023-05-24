@@ -50,7 +50,7 @@ export default function Menu() {
           <option value='lower'>Lower population</option>
         </SelectBox>
       </div>
-      <div>
+      {/* <div>
         <SelectLabel>Activities around the world</SelectLabel>
         <SelectBox
           id='getActivities'
@@ -60,7 +60,7 @@ export default function Menu() {
           <option value=''>--Activities--</option>
           <option value='az'>A to Z</option>
         </SelectBox>
-      </div>
+      </div> */}
     </MenuContainer>
   )
 }

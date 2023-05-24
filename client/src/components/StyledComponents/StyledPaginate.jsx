@@ -16,16 +16,17 @@ export const PageNumber = styled.li`
   transition: 0.05s;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: -1px 3px 28px -4px rgba(0, 0, 0, 0.74);
     -webkit-box-shadow: -1px 3px 28px -4px rgba(0, 0, 0, 0.74);
     -moz-box-shadow: -1px 3px 28px -4px rgba(0, 0, 0, 0.74);
     transition: 0.05s;
     font-weight: 600;
+    color: #a200ff;
   }
 
-  &:active,
-  &:focus {
+  &:active {
     color: #4941b3;
   }
 `

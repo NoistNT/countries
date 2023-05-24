@@ -55,6 +55,6 @@ export const filterByContinent = (continent) => {
   return { type: FILTER_BY_CONTINENT, payload: continent }
 }
 
-export const getSorted = (data) => {
-  return { type: SORT_COUNTRIES, payload: data }
+export const getSorted = (sortOption) => {
+  return { type: SORT_COUNTRIES, payload: sortOption }
 }

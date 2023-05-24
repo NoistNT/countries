@@ -40,10 +40,9 @@ export default function Form() {
   }
 
   const handleChange = (e) => {
-    const property = e.target.name
-    const value = e.target.value
-    setActivity({ ...activity, [property]: value })
-    setErrors(validate({ ...activity, [property]: value }))
+    const { name, value } = e.target
+    setActivity({ ...activity, [name]: value })
+    setErrors(validate({ ...activity, [name]: value }))
   }
 
   const handleSubmit = (e) => {

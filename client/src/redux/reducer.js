@@ -12,10 +12,7 @@ const initialState = {
   allCountries: [],
   countries: [],
   country: {},
-  activities: [],
-  isSorted: false,
-  filter: 'all',
-  sort: ''
+  activities: []
 }
 
 export default function rootReducer(state = initialState, { type, payload }) {
@@ -24,8 +21,7 @@ export default function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         allCountries: payload,
-        countries: payload,
-        isSorted: false
+        countries: payload
       }
     case GET_COUNTRY_BY_ID:
       return {
@@ -47,65 +43,34 @@ export default function rootReducer(state = initialState, { type, payload }) {
         ...state,
         country: {}
       }
+    case SORT_COUNTRIES:
+      const { allCountries } = state
+
+      if (payload === 'az') {
+        allCountries.sort((a, b) => a.name.localeCompare(b.name))
+      } else if (payload === 'za') {
+        allCountries.sort((a, b) => b.name.localeCompare(a.name))
+      } else if (payload === 'higher') {
+        allCountries.sort((a, b) => b.population - a.population)
+      } else if (payload === 'lower') {
+        allCountries.sort((a, b) => a.population - b.population)
+      }
+      return {
+        ...state,
+        countries: allCountries
+      }
     case FILTER_BY_CONTINENT:
-      const { allCountries, sort } = state
+      const countriesToFilter = state.allCountries
       const filtered =
         payload === 'all'
-          ? allCountries
-          : allCountries.filter((country) => country.continent === payload)
-
-      let sorted = filtered
-      if (sort === 'az')
-        sorted = [...filtered].sort((a, b) => a.name.localeCompare(b.name))
-      if (sort === 'za')
-        sorted = [...filtered].sort((a, b) => b.name.localeCompare(a.name))
-      if (sort === 'higher')
-        sorted = [...filtered].sort((a, b) => b.population - a.population)
-      if (sort === 'lower')
-        sorted = [...filtered].sort((a, b) => a.population - b.population)
-
+          ? countriesToFilter
+          : countriesToFilter.filter((e) => e.continent === payload)
       return {
         ...state,
-        countries: sorted,
-        filter: payload,
-        isSorted: true
+        countries: filtered
       }
 
-    case SORT_COUNTRIES:
-      const { countries, filter } = state
-      let sortedCountries
-      if (payload === 'az') {
-        sortedCountries = [...countries].sort((a, b) =>
-          a.name.localeCompare(b.name)
-        )
-      } else if (payload === 'za') {
-        sortedCountries = [...countries].sort((a, b) =>
-          b.name.localeCompare(a.name)
-        )
-      } else if (payload === 'higher') {
-        sortedCountries = [...countries].sort(
-          (a, b) => b.population - a.population
-        )
-      } else if (payload === 'lower') {
-        sortedCountries = [...countries].sort(
-          (a, b) => a.population - b.population
-        )
-      } else {
-        sortedCountries = countries
-      }
-
-      const filteredCountries =
-        filter === 'all'
-          ? sortedCountries
-          : sortedCountries.filter((country) => country.continent === filter)
-
-      return {
-        ...state,
-        countries: filteredCountries,
-        sort: payload,
-        isSorted: true
-      }
     default:
-      return { ...state }
+      return state
   }
 }

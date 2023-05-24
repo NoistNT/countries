@@ -12,7 +12,8 @@ const initialState = {
   allCountries: [],
   countries: [],
   country: {},
-  activities: []
+  activities: [],
+  isSorted: false
 }
 
 export default function rootReducer(state = initialState, { type, payload }) {
@@ -21,7 +22,8 @@ export default function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         allCountries: payload,
-        countries: payload
+        countries: payload,
+        isSorted: false
       }
     case GET_COUNTRY_BY_ID:
       return {
@@ -57,7 +59,8 @@ export default function rootReducer(state = initialState, { type, payload }) {
       }
       return {
         ...state,
-        countries: allCountries
+        countries: allCountries,
+        isSorted: true
       }
     case FILTER_BY_CONTINENT:
       const countriesToFilter = state.allCountries

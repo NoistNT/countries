@@ -7,14 +7,14 @@ import Paginate from '../../components/Paginate'
 
 export default function Home() {
   const dispatch = useDispatch()
-  const { countries } = useSelector((state) => state)
+  const { countries, isSorted } = useSelector((state) => state)
   const [currentPage, setCurrentPage] = useState(1)
   const countriesPerPage = 8
   const totalPages = Math.ceil(countries.length / countriesPerPage)
 
   useEffect(() => {
-    dispatch(getCountries())
-  }, [dispatch])
+    if (!isSorted) dispatch(getCountries())
+  }, [dispatch, isSorted])
 
   const handlePageChange = (page) => {
     setCurrentPage(page)

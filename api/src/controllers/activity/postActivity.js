@@ -19,7 +19,7 @@ const createActivity = async ({
       where: {
         name: {
           [Op.iLike]: {
-            [Op.any]: country.map((name) => `%${name}%`)
+            [Op.any]: [country].map((name) => `%${name}%`)
           }
         }
       }

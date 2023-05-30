@@ -12,9 +12,9 @@ const getAPIData = async () => {
       return {
         id: country.cca3,
         name: country.name.common,
-        flag: country.flags.svg,
+        flag: country.flags.png,
         continent: country.continents[0],
-        capital: country.capital !== undefined ? country.capital[0] : 'No data',
+        capital: country.capital ? country.capital[0] : 'No data',
         subregion: country.subregion || 'No data',
         area: country.area,
         population: country.population

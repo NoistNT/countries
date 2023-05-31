@@ -9,8 +9,9 @@ export const PageNumber = styled.li`
   list-style-type: none;
   padding: 0.3rem 0.9rem;
   margin: 0 0.15rem;
-  background-color: #22223b;
   color: #ffffffe0;
+  background-color: ${({ active }) => (active ? '#4941b3;' : '#22223b')};
+  font-weight: ${({ active }) => (active ? '600' : '400')};
   font-family: 'Raleway', sans-serif;
   border-radius: 0.3rem;
   transition: 0.05s;
@@ -23,10 +24,5 @@ export const PageNumber = styled.li`
     -moz-box-shadow: -1px 3px 28px -4px rgba(0, 0, 0, 0.74);
     transition: 0.05s;
     font-weight: 600;
-    color: #a200ff;
-  }
-
-  &:active {
-    color: #4941b3;
   }
 `

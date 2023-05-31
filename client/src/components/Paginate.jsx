@@ -22,7 +22,11 @@ export default function Paginate({ currentPage, totalPages, onPageChange }) {
 
     for (let page = startPage; page <= endPage; page++) {
       pageNumbers.push(
-        <PageNumber key={page} onClick={() => handlePageChange(page)}>
+        <PageNumber
+          key={page}
+          active={page === currentPage}
+          onClick={() => handlePageChange(page)}
+        >
           {page}
         </PageNumber>
       )

@@ -7,7 +7,8 @@ import {
   StyledLink
 } from './StyledComponents/StyledCard'
 
-export default function Card({ id, name, flag, continent }) {
+export default function Card({ country }) {
+  const { id, name, flag, continent } = country
   return (
     <CardContainer key={id}>
       <StyledLink to={`/countries/${id}`}>

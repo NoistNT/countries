@@ -12,9 +12,8 @@ export default function SearchBar() {
   const [query, setQuery] = useState('')
 
   const handleSearch = (e) => {
-    dispatch(getCountriesByName(query))
+    if (query) dispatch(getCountriesByName(query))
     setQuery((e.target.value = ''))
-    // navigate('/countries')
   }
 
   const handleChange = (e) => {
@@ -22,9 +21,7 @@ export default function SearchBar() {
   }
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch(e)
-    }
+    if (e.key === 'Enter') handleSearch(e)
   }
 
   return (

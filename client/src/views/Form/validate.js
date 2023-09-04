@@ -11,10 +11,8 @@ const validate = (form) => {
   if (!form.name) errors.name = 'Activity name is required'
 
   // Country name validation
-  if (!validName.test(form.country)) errors.country = 'Invalid country name'
-  if (!validLength.test(form.country))
-    errors.country = 'Country name limit is up to 40 characters'
-  if (!form.country) errors.country = 'Country name is required'
+  if (!form.countries || !form.countries.length)
+    errors.countries = 'Select a country'
 
   // Difficulty validation
   if (!form.difficulty) errors.difficulty = 'Select a difficulty'

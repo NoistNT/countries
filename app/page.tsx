@@ -1,5 +1,4 @@
-import CountryCards from '@/components/country-cards'
-import { ModeToggle } from '@/components/ui/mode-toggle'
+import CountryCards from '@/components/country/country-cards'
 import { ICountrySimple } from '@/types'
 
 export default async function Home() {
@@ -9,10 +8,7 @@ export default async function Home() {
     .then((data) => data as ICountrySimple[])
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-center">
-      <div className="fixed right-4 top-4">
-        <ModeToggle />
-      </div>
+    <main className="min-h-screen w-full">
       <CountryCards countries={countries} />
     </main>
   )

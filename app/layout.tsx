@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import { ThemeProvider } from '@/components/theme-provider'
-
+import { ModeToggle } from '@/components/ui/mode-toggle'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -27,6 +27,9 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
         >
+          <div className="fixed right-4 top-4">
+            <ModeToggle />
+          </div>
           {children}
         </ThemeProvider>
       </body>

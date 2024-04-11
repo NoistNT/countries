@@ -25,6 +25,7 @@ export interface Car {
 }
 
 export interface ICountry {
+  _id?: string
   name: Name
   tld: string[]
   cca2: string
@@ -64,7 +65,7 @@ export interface ICountrySimple {
   flags: string
   languages: Record<string, string>
   region: string
-  subregion: string
+  population: number
   capital: string[]
 }
 

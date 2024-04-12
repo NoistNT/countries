@@ -60,15 +60,15 @@ export default function CountryCard({ country }: { country: ICountrySimple }) {
         <Separator className="mx-auto w-11/12 bg-gray-300 dark:bg-gray-700" />
         <CardContent className="flex items-center justify-between py-2 text-left text-sm text-muted-foreground">
           <div className="mx-auto flex flex-col">
-            <span className="font-bold">Capital</span>
-            <span>{country.capital}</span>
+            <span className="font-bold text-primary/80">Capital</span>
+            <span>{country.capital ?? 'N/A'}</span>
           </div>
           <Separator
             className="h-12 bg-gray-300 dark:bg-gray-700"
             orientation="vertical"
           />
           <div className="mx-auto flex flex-col">
-            <span className="font-bold">Region</span>
+            <span className="font-bold text-primary/80">Region</span>
             <span>{country.region}</span>
           </div>
           <Separator
@@ -76,7 +76,7 @@ export default function CountryCard({ country }: { country: ICountrySimple }) {
             orientation="vertical"
           />
           <div className="mx-auto flex flex-col">
-            <span className="font-bold">Population</span>
+            <span className="font-bold text-primary/80">Population</span>
             <span>{formatNumber(country.population)}</span>
           </div>
         </CardContent>

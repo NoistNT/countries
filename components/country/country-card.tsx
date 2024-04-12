@@ -31,7 +31,7 @@ export default function CountryCard({ country }: { country: ICountrySimple }) {
           src={country.flags}
           width={100}
         />
-        <CardHeader className="py-3">
+        <CardHeader className="py-4">
           <TooltipProvider>
             <Tooltip delayDuration={200}>
               <TooltipTrigger className="w-fit max-w-full truncate text-left text-2xl font-semibold">
@@ -58,7 +58,7 @@ export default function CountryCard({ country }: { country: ICountrySimple }) {
           </TooltipProvider>
         </CardHeader>
         <Separator className="mx-auto w-11/12 bg-gray-300 dark:bg-gray-700" />
-        <CardContent className="flex items-center justify-between py-2 text-left text-sm text-gray-600 dark:text-gray-300">
+        <CardContent className="flex items-center justify-between py-2 text-left text-sm text-muted-foreground">
           <div className="mx-auto flex flex-col">
             <span className="font-bold">Capital</span>
             <span>{country.capital}</span>

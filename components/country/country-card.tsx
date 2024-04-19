@@ -17,29 +17,33 @@ import {
 import { formatNumber } from '@/lib/utils'
 import { ICountrySimple } from '@/types'
 
-export default function CountryCard({ country }: { country: ICountrySimple }) {
+export default function CountryCard({
+  country: { _id, name, flags, capital, region, population }
+}: {
+  country: ICountrySimple
+}) {
   return (
     <Card
-      key={country._id}
+      key={_id}
       className="mx-auto w-full max-w-md shadow-gray-300 hover:bg-secondary dark:shadow-gray-500"
     >
-      <Link href={`/${country._id}`}>
+      <Link href={`/${_id}`}>
         <Image
-          alt={country.name.official}
+          alt={name.official}
           className="aspect-[4/3] h-60 w-full rounded-b-sm rounded-t-xl object-cover"
           height={100}
-          src={country.flags}
+          src={flags}
           width={100}
         />
         <CardHeader className="py-4">
           <TooltipProvider>
             <Tooltip delayDuration={200}>
               <TooltipTrigger className="w-fit max-w-full truncate text-left text-2xl font-semibold">
-                {country.name.common}
+                {name.common}
               </TooltipTrigger>
               <TooltipContent>
                 <CardDescription className="text-md font-semibold text-secondary">
-                  {country.name.common}
+                  {name.common}
                 </CardDescription>
               </TooltipContent>
             </Tooltip>
@@ -47,11 +51,11 @@ export default function CountryCard({ country }: { country: ICountrySimple }) {
           <TooltipProvider>
             <Tooltip delayDuration={200}>
               <TooltipTrigger className="w-fit max-w-full truncate text-left text-sm text-muted-foreground">
-                {country.name.official}
+                {name.official}
               </TooltipTrigger>
               <TooltipContent>
                 <CardDescription className="text-md font-semibold text-secondary">
-                  {country.name.official}
+                  {name.official}
                 </CardDescription>
               </TooltipContent>
             </Tooltip>
@@ -61,7 +65,7 @@ export default function CountryCard({ country }: { country: ICountrySimple }) {
         <CardContent className="flex items-center justify-between py-2 text-left text-sm text-muted-foreground">
           <div className="mx-auto flex flex-col">
             <span className="font-bold text-primary/80">Capital</span>
-            <span>{country.capital ?? 'N/A'}</span>
+            <span>{capital ?? 'N/A'}</span>
           </div>
           <Separator
             className="h-12 bg-gray-300 dark:bg-gray-700"
@@ -69,7 +73,7 @@ export default function CountryCard({ country }: { country: ICountrySimple }) {
           />
           <div className="mx-auto flex flex-col">
             <span className="font-bold text-primary/80">Region</span>
-            <span>{country.region}</span>
+            <span>{region}</span>
           </div>
           <Separator
             className="h-12 bg-gray-300 dark:bg-gray-700"
@@ -77,7 +81,7 @@ export default function CountryCard({ country }: { country: ICountrySimple }) {
           />
           <div className="mx-auto flex flex-col">
             <span className="font-bold text-primary/80">Population</span>
-            <span>{formatNumber(country.population)}</span>
+            <span>{formatNumber(population)}</span>
           </div>
         </CardContent>
       </Link>

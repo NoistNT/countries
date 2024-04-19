@@ -6,7 +6,7 @@ export default function Footer() {
       <CardDescription>
         Made with ❤️ by{' '}
         <a
-          className="text-align-center text-cyan-500 hover:underline dark:text-cyan-400"
+          className="text-align-center text-sky-700 hover:underline dark:text-cyan-400"
           href="https://github.com/NoistNT"
         >
           Ariel Piazzano

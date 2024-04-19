@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function formatNumber(number: number) {
   return new Intl.NumberFormat('en-US').format(number).replaceAll(',', '.')
 }
+
+export function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}

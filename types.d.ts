@@ -63,7 +63,6 @@ export interface ICountrySimple {
   _id: string
   name: { common: string; official: string }
   flags: string
-  languages: Record<string, string>
   region: string
   population: number
   capital: string[]

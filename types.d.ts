@@ -25,7 +25,7 @@ export interface Car {
 }
 
 export interface ICountry {
-  _id?: string
+  _id: string
   name: Name
   tld: string[]
   cca2: string

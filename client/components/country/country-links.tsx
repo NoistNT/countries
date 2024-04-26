@@ -8,7 +8,7 @@ export default function CountryLinks({
   label: string
 }) {
   return (
-    <div className="flex justify-around">
+    <div className="flex justify-between border-b p-4 transition-colors hover:bg-muted/50">
       <span className="font-bold">{label}: </span>
       <Link
         className="text-sky-700 hover:underline dark:text-cyan-500"

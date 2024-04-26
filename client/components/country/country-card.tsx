@@ -25,7 +25,7 @@ export default function CountryCard({
   return (
     <Card
       key={_id}
-      className="mx-auto w-full max-w-md shadow-gray-300 hover:bg-secondary dark:shadow-gray-500"
+      className="mx-auto w-full max-w-md shadow-gray-300 transition-colors hover:bg-secondary dark:shadow-gray-500"
     >
       <Link href={`/${_id}`}>
         <Image

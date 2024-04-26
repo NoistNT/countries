@@ -8,7 +8,7 @@ export default function CountryMinInfo({
   data: string
 }) {
   return (
-    <div className="flex justify-around">
+    <div className="flex justify-between border-b p-4 transition-colors hover:bg-muted/50">
       <span className="font-bold">{label}: </span>
       <span>{capitalizeFirstLetter(data)}</span>
     </div>

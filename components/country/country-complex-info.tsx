@@ -8,7 +8,7 @@ export default function CountryComplexInfo({
   data: string[]
 }) {
   return (
-    <div className="flex justify-between border-b p-4 transition-colors hover:bg-muted/50">
+    <div className="flex justify-around">
       <span className="font-bold">{capitalizeFirstLetter(label)}: </span>
       <div className="flex flex-col">
         {data.length === 0 ? (

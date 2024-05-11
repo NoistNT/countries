@@ -1,7 +1,8 @@
+import { Country } from '@/schemas/country.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Country } from '../schemas/country.schema';
+import { readFileSync } from 'node:fs';
 
 @Injectable()
 export class SeederService {
@@ -14,9 +15,8 @@ export class SeederService {
     message: string;
     data: Country[] | null;
   }> {
-    const { SEED_URL } = process.env;
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const countries: Country[] = require(SEED_URL as string);
+    const rawData = readFileSync(process.env.COUNTRIES_JSON_PATH!);
+    const countries: Country[] = JSON.parse(rawData.toString());
 
     try {
       await this.countryModel.deleteMany({});

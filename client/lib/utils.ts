@@ -12,3 +12,7 @@ export function formatNumber(number: number) {
 export function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
+
+export function generateRandomKey() {
+  return Math.random().toString(36).slice(2)
+}

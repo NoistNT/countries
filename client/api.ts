@@ -8,7 +8,9 @@ export async function getCountries() {
 
     if (!response.ok) throw new Error('Failed to fetch countries')
 
-    return ((await response.json()) as ICountrySimple[]) ?? []
+    const country = (await response.json()) as ICountrySimple[]
+
+    return country ?? []
   } catch (error) {
     if (error instanceof Error) throw new Error(error.message)
 
@@ -26,6 +28,6 @@ export async function getCountry(id: string) {
   } catch (error) {
     if (error instanceof Error) throw new Error(error.message)
 
-    return null
+    return undefined
   }
 }

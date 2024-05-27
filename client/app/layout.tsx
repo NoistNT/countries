@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 
-import { Inter } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 
 import Footer from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ModeToggle } from '@/components/ui/mode-toggle'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Countries',
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${nunito.className} antialiased`}>
         <ThemeProvider
           disableTransitionOnChange
           enableSystem

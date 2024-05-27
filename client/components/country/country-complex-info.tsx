@@ -1,20 +1,29 @@
-import { capitalizeFirstLetter } from '@/lib/utils'
+import { capitalizeFirstLetter, cn, generateRandomKey } from '@/lib/utils'
 
-export default function CountryComplexInfo({
-  label,
-  data
-}: {
+interface Props {
   label: string
   data: string[]
-}) {
+  className?: string | undefined
+}
+
+export default function CountryComplexInfo({ label, data, className }: Props) {
   return (
-    <div className="flex justify-around">
+    <div
+      className={cn(
+        'flex justify-between border-b p-4 transition-colors hover:bg-muted/50',
+        className
+      )}
+    >
       <span className="font-bold">{capitalizeFirstLetter(label)}: </span>
       <div className="flex flex-col">
         {data.length === 0 ? (
           <span>N/A</span>
         ) : (
-          data.map((item) => <span key={item}>{item}</span>)
+          data.map((item) => (
+            <span key={generateRandomKey()} className="font-extrabold">
+              {item}
+            </span>
+          ))
         )}
       </div>
     </div>

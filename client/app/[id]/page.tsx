@@ -1,27 +1,23 @@
+import { getCountries, getCountry } from '@/api'
 import CountryDetailsCard from '@/components/country/country-details-card'
-import { ICountry } from '@/types'
 
 export async function generateMetadata({
   params: { id }
 }: {
   params: { id: string }
 }) {
-  const country = await fetch(`${process.env.API_URL}/countries/${id}`)
-    .then((res) => res.json())
-    .then((data) => data as ICountry)
+  const country = await getCountry(id)
 
   return {
-    title: country.name.official,
+    title: country?.name.official,
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!)
   }
 }
 
 export async function generateStaticParams() {
-  const countries = await fetch(`${process.env.API_URL}/countries`)
-    .then((res) => res.json())
-    .then((data) => data as ICountry[])
+  const countries = await getCountries()
 
-  return countries.map((country: ICountry) => ({
+  return countries?.map((country) => ({
     id: country._id.toString()
   }))
 }
@@ -33,13 +29,9 @@ export default async function CountryDetail({
 }: {
   params: { id: string }
 }) {
-  const country = await fetch(`${process.env.API_URL}/countries/${id}`)
-    .then((res) => res.json())
-    .then((data) => data as ICountry)
+  const country = await getCountry(id)
 
-  return (
-    <div className="container mx-auto flex flex-col items-center justify-center p-4">
-      <CountryDetailsCard country={country} />
-    </div>
-  )
+  if (!country) return
+
+  return <CountryDetailsCard country={country} />
 }

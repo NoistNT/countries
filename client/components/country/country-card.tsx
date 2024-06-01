@@ -1,3 +1,5 @@
+import type { ICountrySimple } from '@/types'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -15,7 +17,6 @@ import {
   TooltipTrigger
 } from '@/components/ui/tooltip'
 import { formatNumber } from '@/lib/utils'
-import { ICountrySimple } from '@/types'
 
 export default function CountryCard({
   country: { _id, name, flags, capital, region, population }

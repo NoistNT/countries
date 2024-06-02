@@ -1,4 +1,4 @@
-import { ICountrySimple } from '@/types'
+import type { ICountrySimple } from '@/types'
 
 import CountryCard from './country-card'
 

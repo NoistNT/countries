@@ -6,9 +6,7 @@ import { readFileSync } from 'node:fs';
 
 @Injectable()
 export class SeederService {
-  constructor(
-    @InjectModel(Country.name) private readonly countryModel: Model<Country>,
-  ) {}
+  constructor(@InjectModel(Country.name) private readonly countryModel: Model<Country>) {}
 
   async seed(): Promise<{
     status: number;

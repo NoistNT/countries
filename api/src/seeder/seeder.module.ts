@@ -5,9 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Country, CountrySchema } from '@/schemas/country.schema';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([{ name: Country.name, schema: CountrySchema }]),
-  ],
+  imports: [MongooseModule.forFeature([{ name: Country.name, schema: CountrySchema }])],
   controllers: [SeederController],
   providers: [SeederService],
 })

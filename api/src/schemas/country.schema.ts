@@ -1,11 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import {
-  IsArray,
-  IsBoolean,
-  IsNumber,
-  IsString,
-  ValidateNested,
-} from 'class-validator';
+import { IsArray, IsBoolean, IsNumber, IsString, ValidateNested } from 'class-validator';
 import { Currency, Translation, Demonyms, Car } from '@/types';
 
 @Schema()

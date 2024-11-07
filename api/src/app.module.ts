@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SeederModule } from './seeder/seeder.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { CountryModule } from './country/country.module';
+import { SeederModule } from './seeder/seeder.module';
 
 @Module({
   imports: [

@@ -8,9 +8,7 @@ import { CountryFilterDto } from './dto/country-filter.dto';
 
 @Injectable()
 export class CountryService {
-  constructor(
-    @InjectModel(Country.name) private readonly countryModel: Model<Country>,
-  ) {}
+  constructor(@InjectModel(Country.name) private readonly countryModel: Model<Country>) {}
 
   private async buildSimpleCountries(query: Query): Promise<CountrySimple[]> {
     const { COUNTRIES_LMT } = process.env;

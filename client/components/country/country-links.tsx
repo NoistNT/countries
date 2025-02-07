@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 interface Props {
-  link: string
-  label: string
+  link: string;
+  label: string;
 }
 
 export default function CountryLinks({ link, label }: Props) {
@@ -17,5 +17,5 @@ export default function CountryLinks({ link, label }: Props) {
         <span>View on {label}</span>
       </Link>
     </div>
-  )
+  );
 }

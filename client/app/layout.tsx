@@ -1,26 +1,29 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
 
-import { Nunito } from 'next/font/google'
+import { Nunito } from 'next/font/google';
 
-import Footer from '@/components/footer'
-import { ThemeProvider } from '@/components/theme-provider'
-import { ModeToggle } from '@/components/ui/mode-toggle'
-import './globals.css'
+import Footer from '@/components/footer';
+import { ThemeProvider } from '@/components/theme-provider';
+import { ModeToggle } from '@/components/ui/mode-toggle';
+import './globals.css';
 
-const nunito = Nunito({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Countries',
-  description: 'Countries'
-}
+  description: 'Countries',
+};
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html
+      suppressHydrationWarning
+      lang="en"
+    >
       <body className={`${nunito.className} antialiased`}>
         <ThemeProvider
           disableTransitionOnChange
@@ -36,5 +39,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

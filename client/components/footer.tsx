@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import { CardDescription, CardFooter } from './ui/card'
+import { CardDescription, CardFooter } from './ui/card';
 
 export default function Footer() {
   return (
@@ -16,5 +16,5 @@ export default function Footer() {
         </Link>
       </CardDescription>
     </CardFooter>
-  )
+  );
 }

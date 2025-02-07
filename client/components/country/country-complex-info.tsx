@@ -1,9 +1,9 @@
-import { capitalizeFirstLetter, cn, generateRandomKey } from '@/lib/utils'
+import { capitalizeFirstLetter, cn, generateRandomKey } from '@/lib/utils';
 
 interface Props {
-  label: string
-  data: string[]
-  className?: string | undefined
+  label: string;
+  data: string[];
+  className?: string | undefined;
 }
 
 export default function CountryComplexInfo({ label, data, className }: Props) {
@@ -20,12 +20,15 @@ export default function CountryComplexInfo({ label, data, className }: Props) {
           <span>N/A</span>
         ) : (
           data.map((item) => (
-            <span key={generateRandomKey()} className="font-extrabold">
+            <span
+              key={generateRandomKey()}
+              className="font-extrabold"
+            >
               {item}
             </span>
           ))
         )}
       </div>
     </div>
-  )
+  );
 }

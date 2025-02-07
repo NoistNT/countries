@@ -1,8 +1,8 @@
-import { capitalizeFirstLetter } from '@/lib/utils'
+import { capitalizeFirstLetter } from '@/lib/utils';
 
 interface Props {
-  label: string
-  data: string
+  label: string;
+  data: string;
 }
 
 export default function CountryMinInfo({ label, data }: Props) {
@@ -11,5 +11,5 @@ export default function CountryMinInfo({ label, data }: Props) {
       <span className="font-extrabold">{label}: </span>
       <span className="font-extrabold">{capitalizeFirstLetter(data)}</span>
     </div>
-  )
+  );
 }

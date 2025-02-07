@@ -1,27 +1,16 @@
-import type { ICountrySimple } from '@/types'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import Image from 'next/image'
-import Link from 'next/link'
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader
-} from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from '@/components/ui/tooltip'
-import { formatNumber } from '@/lib/utils'
+import type { ICountrySimple } from '@/types';
+import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { formatNumber } from '@/lib/utils';
 
 export default function CountryCard({
-  country: { _id, name, flags, capital, region, population }
+  country: { _id, name, flags, capital, region, population },
 }: {
-  country: ICountrySimple
+  country: ICountrySimple;
 }) {
   return (
     <Card
@@ -87,5 +76,5 @@ export default function CountryCard({
         </CardContent>
       </Link>
     </Card>
-  )
+  );
 }

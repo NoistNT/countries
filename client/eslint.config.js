@@ -71,7 +71,6 @@ export default [
           'newlines-between': 'always',
         },
       ],
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
     settings: {
       'react': { version: 'detect' },

@@ -16,3 +16,8 @@ export function capitalizeFirstLetter(string: string) {
 export function generateRandomKey() {
   return Math.random().toString(36).slice(2);
 }
+
+export function resolveUrl(url: string | undefined) {
+  if (url) return url;
+  return 'http://localhost:3000';
+}

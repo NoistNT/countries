@@ -1,12 +1,17 @@
+import { env } from 'node:process';
+
 import { getCountries, getCountry } from '@/api';
 import CountryDetailsCard from '@/components/country/country-details-card';
+import { resolveUrl } from '@/lib/utils';
 
-export async function generateMetadata({ params: { id } }: { params: { id: string } }) {
+export const dynamicParams = false;
+
+export async function generateMeta({ params: { id } }: { params: { id: string } }) {
   const country = await getCountry(id);
 
   return {
     title: country?.name.official,
-    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
+    metadataBase: new URL(resolveUrl(env.NEXT_PUBLIC_APP_URL)),
   };
 }
 
@@ -17,8 +22,6 @@ export async function generateStaticParams() {
     id: country._id.toString(),
   }));
 }
-
-export const dynamicParams = false;
 
 export default async function CountryDetail({ params: { id } }: { params: { id: string } }) {
   const country = await getCountry(id);
